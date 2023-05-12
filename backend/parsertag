@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+
+<?php
+
+use App\Services\ParserTagService;
+
+require __DIR__ . '/vendor/autoload.php';
+
+echo "parser init" . PHP_EOL;
+
+if ($argc < 2 || $argc > 3) {
+    echo "incorrect parameters" . PHP_EOL;
+} else {
+    $url = $argv[1];
+    echo "url: $url" . PHP_EOL;
+    $parser = new ParserTagService();
+    $tags = $parser->process($url);
+    if (sizeof($tags) > 0) {
+        foreach ($tags as $tagName => $tagCount) {
+            echo "Tag: $tagName, count: $tagCount" . PHP_EOL;
+        }
+    };
+}
+
+echo "parser complete" . PHP_EOL;

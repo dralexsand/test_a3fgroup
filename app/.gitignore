@@ -1,0 +1,78 @@
+### Vue template
+# gitignore template for Vue.js projects
+#
+# Recommended template: Node.gitignore
+
+### Node template
+# Logs
+frontend/logs
+frontend/*.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/lerna-debug.log*
+
+
+# Dependency directories
+frontend/node_modules/
+jspm_packages/
+
+# TypeScript cache
+frontend/*.tsbuildinfo
+
+# Optional npm cache directory
+frontend/.npm
+
+# Optional eslint cache
+frontend/.eslintcache
+
+# dotenv environment variables file
+frontend/.env
+frontend/.env.test
+
+# Gatsby files
+frontend/.cache/
+# Comment in the public line in if your project uses Gatsby and not Next.js
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# public
+
+# yarn v2
+frontend/.yarn/cache
+frontend/.yarn/unplugged
+frontend/.yarn/build-state.yml
+frontend/.yarn/install-state.gz
+frontend/.pnp.*
+
+### Laravel template
+backend/vendor/
+backend/node_modules/
+backend/npm-debug.log
+backend/yarn-error.log
+
+# Laravel 4 specific
+backend/bootstrap/compiled.php
+backend/app/storage/
+
+# Laravel 5 & Lumen specific
+backend/public/storage
+backend/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+backend/public_html/storage
+backend/public_html/hot
+
+backend/storage/*.key
+backend/.env
+backend/.phpunit.result.cache
+
+# General
+.idea
+frontend/.idea
+backend/.idea
+.env
+_tmp
+
+docker/db/pg/data/pgdata/
+docker/rabbitmq
+docker/logs
+docker/cache
