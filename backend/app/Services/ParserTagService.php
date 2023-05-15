@@ -5,7 +5,7 @@ namespace App\Services;
 class ParserTagService extends ParserTagBase
 {
 
-    public function regexTagPattern(): string
+    protected function regexTagPattern(): string
     {
         return "/<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\/\">])+/i";
     }

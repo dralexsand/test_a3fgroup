@@ -16,7 +16,7 @@ abstract class ParserTagBase implements ParserTagInterface
         return $this->getCollectedTags($tagsData);
     }
 
-    abstract public function regexTagPattern(): string;
+    abstract protected function regexTagPattern(): string;
 
     abstract protected function getContent(string $url): string;
 
