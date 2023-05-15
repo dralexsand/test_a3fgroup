@@ -19,7 +19,7 @@ if ($argc < 2 || $argc > 3) {
         foreach ($tags as $tagName => $tagCount) {
             echo "Tag: $tagName, count: $tagCount" . PHP_EOL;
         }
-    };
+    }
 }
 
 echo "parser complete" . PHP_EOL;

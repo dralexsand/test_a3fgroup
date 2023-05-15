@@ -2,34 +2,15 @@
 
 namespace App\Services;
 
-class ParserTagService
+class ParserTagService extends ParserTagBase
 {
 
-
-    protected function regexTagPattern(): string
+    public function regexTagPattern(): string
     {
-        //return "/<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\">])+>/i";
         return "/<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\/\">])+/i";
-        //return "/<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\">])+/i";
-        //return "/<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\">])+/";
-        //return '/\<([\w]+)\s.*\>/ismU';
-        //return `/<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\/">])+/`;
-        //return "/<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\/">])+/";
     }
 
-    public function process(string $url): array
-    {
-        $content = $this->getContent($url);
-        $tagsData = $this->getTags($content);
-
-        if (sizeof($tagsData) === 0) {
-            return [];
-        }
-
-        return $this->getCollectedTags($tagsData);
-    }
-
-    protected function cleanTag(string $tagTrash)
+    protected function cleanTag(string $tagTrash): string
     {
         $tagsBumpArray = explode(' ', substr($tagTrash, 1));
         return $tagsBumpArray[0];
@@ -53,9 +34,8 @@ class ParserTagService
         return $tags;
     }
 
-    protected function getTags(string $content)
+    protected function getTags(string $content): array
     {
-        $pattern = $this->regexTagPattern();
         preg_match_all($this->regexTagPattern(), $content, $matches);
         return sizeof($matches) > 0 ? $matches[0] : [];
     }
@@ -63,8 +43,7 @@ class ParserTagService
     protected function getContent(string $url): string
     {
         // ToDo curl?
-        $content = file_get_contents($url);
-        return $content;
+        return file_get_contents($url);
     }
 
 
